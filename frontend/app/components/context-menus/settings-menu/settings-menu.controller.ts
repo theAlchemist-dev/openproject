@@ -25,6 +25,7 @@
 // See doc/COPYRIGHT.rdoc for more details.
 //++
 
+import {takeUntil} from 'rxjs/operators';
 import {opWorkPackagesModule} from '../../../angular-modules';
 import {ContextMenuService} from '../context-menu.service';
 import {WorkPackageTableHierarchiesService} from '../../wp-fast-table/state/wp-table-hierarchy.service';
@@ -114,7 +115,7 @@ function SettingsDropdownMenuController($scope:IMyScope,
     .query
     .resource
     .values$()
-    .takeUntil(states.globalTable.stopAllSubscriptions)
+    .pipe(takeUntil(states.globalTable.stopAllSubscriptions))
     .subscribe(queryUpdate => {
 
     $scope.loading = true;
@@ -126,7 +127,7 @@ function SettingsDropdownMenuController($scope:IMyScope,
     .query
     .form
     .values$()
-    .takeUntil(states.globalTable.stopAllSubscriptions)
+    .pipe(takeUntil(states.globalTable.stopAllSubscriptions))
     .subscribe(formUpdate => {
 
     form = formUpdate;

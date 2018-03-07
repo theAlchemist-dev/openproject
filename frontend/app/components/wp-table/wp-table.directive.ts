@@ -27,7 +27,6 @@
 // ++
 
 import {Component, ElementRef, Inject, Injector, Input, OnDestroy, OnInit} from '@angular/core';
-import {downgradeComponent} from '@angular/upgrade/static';
 import {columnsModalToken, I18nToken} from 'core-app/angular4-transition-utils';
 import {QueryGroupByResource} from 'core-components/api/api-v3/hal-resources/query-group-by-resource.service';
 import {QueryResource} from 'core-components/api/api-v3/hal-resources/query-resource.service';
