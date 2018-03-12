@@ -289,8 +289,11 @@ function getWebpackMainConfig() {
       ),
 
       // Restrict loaded moment locales to the ones we load from translations
-      new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, new RegExp('(' + localeIds.join('|') + ')\.js$', 'i')),
-      new BundleAnalyzerPlugin()
+      new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, new RegExp('(' + localeIds.join('|') + ')\.js$', 'i'))
+
+      // If you want to analyze the output of this bundle, uncomment this line
+      // to start an express server
+      // new BundleAnalyzerPlugin()
     ]
   };
 
